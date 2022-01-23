@@ -1,4 +1,7 @@
-# Getting Started with Create React App
+# React-Tic-Tac-Toe
+Remake of the tic-tac-toe game by the Odin project curriculum using React to build the front-end and ES6 classes to build the OOP logic.
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
