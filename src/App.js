@@ -9,11 +9,14 @@ function App() {
     board: gameBoard,
   });
 
+  console.log(state.board.getBoard());
+
   return (
     <div className="App">
       <div className="board">
-        {state.board.getBoard().map((column, col) => {
-          column.map((cell, row) => {
+        {state.board.getBoard().map((line, row) => {
+          const column = line.map((cell, col) => {
+            console.log(`(${row}, ${col})`);
             return (
               <div
                 key={`(${row}, ${col})`}
@@ -21,10 +24,11 @@ function App() {
                 col={col}
                 className="cell"
               >
-                `(${row}, ${col})`
+                ({row}, {col})
               </div>
             );
           });
+          return column;
         })}
       </div>
     </div>
