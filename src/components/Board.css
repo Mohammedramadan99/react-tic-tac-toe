@@ -1,0 +1,16 @@
+.board {
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  border: 1px solid rgb(28, 128, 103);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  box-sizing: border-box;
+  border: 1px solid rgb(28, 128, 103);
+  flex-shrink: 0;
+}

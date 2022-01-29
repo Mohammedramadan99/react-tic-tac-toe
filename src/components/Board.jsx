@@ -1,3 +1,5 @@
+import "./Board.css";
+
 const Board = (props) => {
   const board = props.board;
 
