@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import { gameBoard } from "./gameboard";
+import Board from "./components/Board";
 
 function App() {
   const N = gameBoard.getN();
@@ -13,24 +14,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="board">
-        {state.board.getBoard().map((line, row) => {
-          const column = line.map((cell, col) => {
-            console.log(`(${row}, ${col})`);
-            return (
-              <div
-                key={`(${row}, ${col})`}
-                row={row}
-                col={col}
-                className="cell"
-              >
-                ({row}, {col})
-              </div>
-            );
-          });
-          return column;
-        })}
-      </div>
+      <Board board={state.board} />
     </div>
   );
 }
