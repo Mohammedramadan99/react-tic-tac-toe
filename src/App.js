@@ -20,6 +20,12 @@ function App() {
         <Scores nameA={"playerA"} nameB={"playerB"} scoreA={0} scoreB={0} />
       </header>
       <Board board={state.board} />
+      <div className="buttons">
+        <button className="button">START</button>
+        <button className="button">RESET</button>
+        <button className="button">AI</button>
+        <button className="button">Change Names</button>
+      </div>
     </div>
   );
 }

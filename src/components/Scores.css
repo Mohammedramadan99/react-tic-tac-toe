@@ -1,0 +1,21 @@
+.score-bar {
+  display: flex;
+  flex-direction: column;
+}
+
+.names {
+  display: flex;
+  justify-content: space-between;
+}
+
+.scores {
+  display: flex;
+  justify-content: space-between;
+}
+
+.score-bar h2 {
+  margin: 0;
+  width: 100%;
+  color: rgb(18, 87, 77);
+  text-align: center;
+}

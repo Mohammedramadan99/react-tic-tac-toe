@@ -1,3 +1,5 @@
+import "./Scores.css";
+
 const Scores = (props) => {
   const { nameA, nameB, scoreA, scoreB } = props;
 
