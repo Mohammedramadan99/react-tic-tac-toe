@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import { gameBoard } from "./gameboard";
 import Board from "./components/Board";
+import Scores from "./components/Scores";
 
 function App() {
   const N = gameBoard.getN();
@@ -16,6 +17,7 @@ function App() {
     <div className="App">
       <header>
         <h1>TIC-TAC-TOE</h1>
+        <Scores nameA={"playerA"} nameB={"playerB"} scoreA={0} scoreB={0} />
       </header>
       <Board board={state.board} />
     </div>
