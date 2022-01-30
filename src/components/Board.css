@@ -1,16 +1,26 @@
 .board {
-  width: 300px;
-  height: 300px;
+  width: 330px;
+  height: 330px;
   margin: auto;
-  border: 1px solid rgb(28, 128, 103);
+  background-color: rgb(28, 128, 103);
   display: flex;
   flex-wrap: wrap;
+  padding: 5px;
+  border-radius: 10px;
 }
 
 .cell {
   width: 100px;
   height: 100px;
+  margin: 5px;
   box-sizing: border-box;
-  border: 1px solid rgb(28, 128, 103);
+  background-color: #011414;
   flex-shrink: 0;
+  border-radius: 5px;
+}
+
+.cell:hover {
+  background-color: rgb(90, 90, 23);
+  color: #011414;
+  border: 1px solid #011414;
 }
