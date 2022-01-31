@@ -10,7 +10,6 @@ import Scores from "./components/Scores";
 function App() {
   const playerA = players.playerA;
   const human = players.human;
-  const win = winner();
 
   const [state, setState] = useState({
     board: gameBoard,
@@ -23,6 +22,8 @@ function App() {
     isGameStopped: false,
   });
 
+  let newState = { ...state };
+
   function setField(col, row, char) {
     return gameBoard.setField(col, row, char);
   }
@@ -32,34 +33,43 @@ function App() {
   }
 
   function render() {
-    setState(state);
+    newState = {
+      ...newState,
+      board: gameBoard,
+    };
+    setState(newState);
   }
 
   function showNextPlayer() {
-    setState({
-      ...state,
+    newState = {
+      ...newState,
       nextPlayer: getPlayerNext(),
-    });
+    };
+    setState(newState);
   }
 
   function showScores() {
-    setState({
-      ...state,
+    newState = {
+      ...newState,
       scoreA: players.playerA.getScore(),
       scoreB: getPlayerB().getScore(),
-    });
+    };
+    setState(newState);
   }
 
   function showMessage() {
+    const win = winner();
+    console.log(message(win));
     alert(message(win));
   }
 
   function showNames() {
-    setState({
-      ...state,
+    newState = {
+      ...newState,
       nameA: playerA.name,
       nameB: getPlayerB().name,
-    });
+    };
+    setState(newState);
   }
 
   function getPlayerB() {
@@ -71,10 +81,11 @@ function App() {
   }
 
   function toggleOpponent() {
-    setState({
-      ...state,
+    newState = {
+      ...newState,
       isComputerPlaying: !state.isComputerPlaying,
-    });
+    };
+    setState(newState);
     players.toggleOpponent();
   }
 
@@ -87,6 +98,7 @@ function App() {
   }
 
   function incScore() {
+    const win = winner();
     if (win != "tie") {
       getPlayerNext().incScore();
     }
@@ -99,6 +111,7 @@ function App() {
   }
 
   function move(col, row) {
+    console.log(state);
     if (state.isGameStopped) return;
     const char = getPlayerNext().char;
     setField(col, row, char);
@@ -135,26 +148,22 @@ function App() {
   }
 
   function stop() {
-    setState({
-      ...state,
+    newState = {
+      ...newState,
       isGameStopped: true,
-    });
+    };
+    setState(newState);
   }
 
   function start() {
-    if (state.isComputerPlaying && getPlayerNext() != playerA) {
+    newState.isGameStopped = false;
+    showScores();
+    if (newState.isComputerPlaying && getPlayerNext() != playerA) {
       toggleNext();
+      showNames();
     }
     erase();
-    setState({
-      ...state,
-      board: gameBoard,
-      isGameStopped: false,
-      scoreA: players.playerA.getScore(),
-      scoreB: getPlayerB().getScore(),
-      nameA: players.playerA.name,
-      nameB: getPlayerB().name,
-    });
+    render();
   }
 
   function updateNames(nameA, nameB) {
@@ -177,9 +186,11 @@ function App() {
         <h1>TIC-TAC-TOE</h1>
         <Scores nameA={"playerA"} nameB={"playerB"} scoreA={0} scoreB={0} />
       </header>
-      <Board board={state.board} />
+      <Board board={state.board} handleClick={move} />
       <div className="buttons">
-        <button className="button">START</button>
+        <button className="button" onClick={start}>
+          START
+        </button>
         <button className="button">RESET</button>
         <button className="button">AI</button>
         <button className="button">Change Names</button>
