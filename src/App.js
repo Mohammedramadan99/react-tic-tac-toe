@@ -6,8 +6,11 @@ import { players } from "./players";
 import { computer } from "./computer";
 import Board from "./components/Board";
 import Scores from "./components/Scores";
+import Modal from "./components/Modal";
 
 function App() {
+  const [showMesage, setShowMessage] = useState(false);
+
   const playerA = players.playerA;
   const human = players.human;
 
@@ -20,6 +23,7 @@ function App() {
     nameB: getPlayerB().name,
     isComputerPlaying: false,
     isGameStopped: false,
+    message: "",
   });
 
   let newState = { ...state };
@@ -59,8 +63,12 @@ function App() {
 
   function showMessage() {
     const win = winner();
-    console.log(message(win));
-    alert(message(win));
+    newState = {
+      ...newState,
+      message: message(win),
+    };
+    setState(newState);
+    setShowMessage(true);
   }
 
   function showNames() {
@@ -183,7 +191,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>TIC-TAC-TOE</h1>
+        <h1>TIC TAC TOE</h1>
         <Scores
           nameA={state.nameA}
           nameB={state.nameB}
@@ -211,6 +219,16 @@ function App() {
         </button>
         <button className="button">Change Names</button>
       </div>
+      <Modal
+        show={showMesage}
+        onClose={() => setShowMessage(false)}
+        header="Game Result"
+      >
+        <p>{state.message}</p>
+        <button className="button" onClick={() => setShowMessage(false)}>
+          OK
+        </button>
+      </Modal>
     </div>
   );
 }

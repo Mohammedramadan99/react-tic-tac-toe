@@ -17,6 +17,8 @@
   background-color: #011414;
   color: rgb(18, 87, 77);
   font-size: 100px;
+  text-align: center;
+  line-height: 90px;
   flex-shrink: 0;
   border-radius: 5px;
 }

@@ -1,0 +1,31 @@
+.cover {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.modal-window {
+  background-color: rgb(18, 87, 77);
+  color: #011414;
+  border-radius: 0.5em;
+  margin: auto;
+  padding: 0.5em;
+}
+
+.modal-header {
+  margin: -0.25em -0.25em 0 -0.25em;
+  border-radius: 0.25em;
+  text-align: left;
+  background-color: #011414;
+  color: rgb(18, 87, 77);
+}
+
+.modal-window .button {
+  display: block;
+  margin: auto;
+}
