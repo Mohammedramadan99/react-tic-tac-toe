@@ -7,14 +7,20 @@ import { computer } from "./computer";
 import Board from "./components/Board";
 import Scores from "./components/Scores";
 import MessageDlg from "./components/MessageDlg";
+import FormDlg from "./components/FormDlg";
 
 function App() {
   /* New stuff for the React UI */
   const [showMesage, setShowMessage] = useState(false);
+  const [showForm, setShowForm] = useState(false);
 
-  function handleClose() {
+  function handleCloseMsgDlg() {
     start();
     setShowMessage(false);
+  }
+
+  function handleCloseFormDlg() {
+    setShowForm(false);
   }
 
   /* Old tic-tac-toe gameControl module code slightly rewritten */
@@ -224,13 +230,21 @@ function App() {
         >
           AI
         </button>
-        <button className="button">Change Names</button>
+        <button className="button" onClick={() => setShowForm(true)}>
+          Change Names
+        </button>
       </div>
       <MessageDlg
         message={state.message}
-        onClose={handleClose}
+        onClose={handleCloseMsgDlg}
         show={showMesage}
         title="Game Result"
+      />
+      <FormDlg
+        show={showForm}
+        onClose={handleCloseFormDlg}
+        title="Change Names"
+        updateNames={updateNames}
       />
     </div>
   );
