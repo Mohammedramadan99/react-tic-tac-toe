@@ -196,8 +196,19 @@ function App() {
         <button className="button" onClick={start}>
           START
         </button>
-        <button className="button">RESET</button>
-        <button className="button">AI</button>
+        <button className="button" onClick={reset}>
+          RESET
+        </button>
+        <button
+          className="button"
+          onClick={() => {
+            toggleOpponent();
+            showNames();
+            reset();
+          }}
+        >
+          AI
+        </button>
         <button className="button">Change Names</button>
       </div>
     </div>
