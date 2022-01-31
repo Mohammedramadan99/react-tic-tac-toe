@@ -6,12 +6,12 @@ const Scores = (props) => {
   return (
     <div className="score-bar">
       <div className="names">
-        <h2 className="name">{nameA}</h2>
-        <h2 className="name">{nameB}</h2>
+        <h3 className="name">{nameA}</h3>
+        <h3 className="name">{nameB}</h3>
       </div>
       <div className="scores">
-        <h2 className="score">{scoreA}</h2>
-        <h2 className="score">{scoreB}</h2>
+        <div className="score">{scoreA}</div>
+        <div className="score">{scoreB}</div>
       </div>
     </div>
   );

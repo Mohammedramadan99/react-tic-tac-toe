@@ -13,7 +13,9 @@ const Board = (props) => {
               row={row}
               col={col}
               className="cell"
-              onClick={() => handleClick(col, row)}
+              onClick={(e) => {
+                handleClick(col, row);
+              }}
             >
               {cell}
             </div>

@@ -111,8 +111,8 @@ function App() {
   }
 
   function move(col, row) {
-    console.log(state);
     if (state.isGameStopped) return;
+    if (state.board.getField(col, row) !== "") return;
     const char = getPlayerNext().char;
     setField(col, row, char);
     render();
@@ -184,7 +184,12 @@ function App() {
     <div className="App">
       <header>
         <h1>TIC-TAC-TOE</h1>
-        <Scores nameA={"playerA"} nameB={"playerB"} scoreA={0} scoreB={0} />
+        <Scores
+          nameA={state.nameA}
+          nameB={state.nameB}
+          scoreA={state.scoreA}
+          scoreB={state.scoreB}
+        />
       </header>
       <Board board={state.board} handleClick={move} />
       <div className="buttons">

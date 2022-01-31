@@ -13,9 +13,14 @@
   justify-content: space-between;
 }
 
-.score-bar h2 {
+.score,
+.name {
   margin: 0;
   width: 100%;
   color: rgb(18, 87, 77);
   text-align: center;
+}
+
+div.score {
+  font-size: 1.4em;
 }
