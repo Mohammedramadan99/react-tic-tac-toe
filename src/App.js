@@ -6,11 +6,18 @@ import { players } from "./players";
 import { computer } from "./computer";
 import Board from "./components/Board";
 import Scores from "./components/Scores";
-import Modal from "./components/Modal";
+import MessageDlg from "./components/MessageDlg";
 
 function App() {
+  /* New stuff for the React UI */
   const [showMesage, setShowMessage] = useState(false);
 
+  function handleClose() {
+    start();
+    setShowMessage(false);
+  }
+
+  /* Old tic-tac-toe gameControl module code slightly rewritten */
   const playerA = players.playerA;
   const human = players.human;
 
@@ -219,16 +226,12 @@ function App() {
         </button>
         <button className="button">Change Names</button>
       </div>
-      <Modal
+      <MessageDlg
+        message={state.message}
+        onClose={handleClose}
         show={showMesage}
-        onClose={() => setShowMessage(false)}
-        header="Game Result"
-      >
-        <p>{state.message}</p>
-        <button className="button" onClick={() => setShowMessage(false)}>
-          OK
-        </button>
-      </Modal>
+        title="Game Result"
+      />
     </div>
   );
 }
