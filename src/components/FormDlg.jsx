@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Modal from "./Modal";
+import "./FormDlg.css";
 
 const FormDlg = (props) => {
   const { show, onClose, title, updateNames } = props;
@@ -34,11 +35,13 @@ const FormDlg = (props) => {
             onChange={(e) => setNameB(e.target.value)}
           />
         </label>
-        <input type="submit" value="UPDATE" className="button" />
+        <div className="btn-container">
+          <button type="button" className="button" onClick={onClose}>
+            CANCEL
+          </button>
+          <input type="submit" value="UPDATE" className="button" />
+        </div>
       </form>
-      <button className="button" onClick={onClose}>
-        CANCEL
-      </button>
     </Modal>
   );
 };
