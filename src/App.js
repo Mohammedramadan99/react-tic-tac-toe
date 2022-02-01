@@ -182,6 +182,7 @@ function App() {
     if (newState.isComputerPlaying && getPlayerNext() != playerA) {
       toggleNext();
       showNames();
+      showNextPlayer();
     }
     erase();
     render();
