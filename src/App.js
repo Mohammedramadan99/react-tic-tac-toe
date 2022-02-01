@@ -214,8 +214,8 @@ function App() {
       </header>
       <Board board={state.board} handleClick={move} />
       <div className="buttons">
-        <button className="button" onClick={start}>
-          START
+        <button className="button" style={{ pointerEvents: "none" }}>
+          Extended Mode
         </button>
         <button className="button" onClick={reset}>
           RESET

@@ -19,10 +19,11 @@ h1 {
 .buttons {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .button {
-  min-width: fit-content;
+  flex-shrink: 0;
   width: 150px;
   height: 2em;
   font-size: 1em;

@@ -1,18 +1,18 @@
 .board {
-  width: 330px;
-  height: 330px;
+  width: 312px;
+  height: 312px;
   margin: auto;
   background-color: rgb(18, 87, 77);
   display: flex;
   flex-wrap: wrap;
-  padding: 5px;
-  border-radius: 10px;
+  padding: 2px;
+  border-radius: 7px;
 }
 
 .cell {
   width: 100px;
   height: 100px;
-  margin: 5px;
+  margin: 2px;
   box-sizing: border-box;
   background-color: #011414;
   color: rgb(18, 87, 77);
