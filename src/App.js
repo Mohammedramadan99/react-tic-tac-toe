@@ -210,6 +210,7 @@ function App() {
           nameB={state.nameB}
           scoreA={state.scoreA}
           scoreB={state.scoreB}
+          nextPlayer={state.nextPlayer}
         />
       </header>
       <Board board={state.board} handleClick={move} />
