@@ -7,13 +7,15 @@ const FormDlg = (props) => {
   const [nameA, setNameA] = useState("");
   const [nameB, setNameB] = useState("");
 
-  function handleSubmit() {
+  function handleSubmit(e) {
+    e.preventDefault();
     updateNames(nameA, nameB);
+    onClose();
   }
 
   return (
     <Modal show={show} onClose={onClose} title={title}>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <label className="label">
           Name A
           <input
@@ -33,10 +35,10 @@ const FormDlg = (props) => {
           />
         </label>
         <input type="submit" value="UPDATE" className="button" />
-        <button className="button" onClick={onClose}>
-          CANCEL
-        </button>
       </form>
+      <button className="button" onClick={onClose}>
+        CANCEL
+      </button>
     </Modal>
   );
 };
