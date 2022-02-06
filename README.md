@@ -1,5 +1,16 @@
 # React-Tic-Tac-Toe
-Remake of the tic-tac-toe game by the Odin project curriculum using React to build the front-end and ES6 classes to build the OOP logic.
+Remake of the tic-tac-toe game by the Odin project curriculum using React to build the front-end and ES6 classes to build the OOP logic. Although the
+original plan was to rewrite the OOP syntax with ES6 classes, but so high code reuse was possible, that I kept the original code with all of its flaws
+and with module pattern and factory function OOP syntax.
+
+# What I have learned from this project
+-I practiced how React can be used in an OOP project to provide the UI. It has been done in my Battleship project, so it was actually only practice.
+The new aspect was how an old OOP project could be rewritten as the Battleship was disigned originally with a React UI. React has nicely taken over 
+the role of those objects, which were responsible for the DOM manipulations. The gameControl module has become the React App component. It contains
+mainly all the functions from the old gameControl module in the same or slightly rewritten form.
+-I built the UI without a styling framework, I only used vanilla CSS to practice.
+-I built my own simple modal component, which is used as a MessageDlg and a FormDlg component. 
+-This is my first component, which has JSX as child content. This JSX is accessed from the props with the props.children prop.
 
 ## Getting Started with Create React App
 
