@@ -1,7 +1,7 @@
 import { matrix } from "./matrix";
 
 export const gameBoard = (function () {
-  const _n = 3;
+  const _n = 10;
 
   let _board = matrix(_n, _n);
 

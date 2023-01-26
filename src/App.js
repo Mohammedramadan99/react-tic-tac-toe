@@ -214,15 +214,17 @@ function App() {
           nextPlayer={state.nextPlayer}
         />
       </header>
-      <Board board={state.board} handleClick={move} />
+      <Board board={state.board} extendedMode={extendedMode} handleClick={move} />
+      
       <div className="buttons">
-        <button className="button" style={{ pointerEvents: "none" }}>
+        {/* <button className="button" style={{ pointerEvents: "none" }}> */}
+        <button className={extendedMode ? "button active" : "button"} onClick={() => setExtendedMode(!extendedMode)}>
           Extended Mode
         </button>
         <button className="button" onClick={reset}>
           RESET
         </button>
-        <button
+        {!extendedMode && <button
           className="button"
           onClick={() => {
             toggleOpponent();
@@ -231,7 +233,7 @@ function App() {
           }}
         >
           AI
-        </button>
+        </button>}
         <button className="button" onClick={() => setShowForm(true)}>
           Change Names
         </button>

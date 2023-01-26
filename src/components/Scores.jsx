@@ -5,21 +5,23 @@ const Scores = (props) => {
 
   const isANext = nameA === nextPlayer.name;
 
-  const activeStyle = {
-    backgroundColor: "rgb(90, 90, 23)",
-    color: "#011414",
-    borderRadius: "5px",
-    padding: "0 50px",
-  };
+  // const activeStyle = {
+  //   backgroundColor: "rgb(90, 90, 23)",
+  //   color: "#011414",
+  //   borderRadius: "5px",
+  //   padding: "0 50px",
+  // };
 
   return (
     <div className="score-bar">
       <div className="names">
-        <h3 className="name">
-          <span style={isANext ? activeStyle : {}}>{nameA}</span>
+        <h3 className={isANext ? "name active" : "name"}>
+          {/* <span style={isANext ? activeStyle : {}}>{nameA}</span> */}
+          <span>{nameA}</span>
         </h3>
-        <h3 className="name">
-          <span style={isANext ? {} : activeStyle}>{nameB}</span>
+        <h3 className={isANext ? "name" : "name active"}>
+          {/* <span style={isANext ? {} : activeStyle}>{nameB}</span> */}
+          <span>{nameB}</span>
         </h3>
       </div>
       <div className="scores">

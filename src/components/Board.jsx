@@ -1,10 +1,10 @@
 import "./Board.css";
 
 const Board = (props) => {
-  const { board, handleClick } = props;
+  const { board, handleClick,extendedMode } = props;
 
   return (
-    <div className="board">
+    <div className={extendedMode ? "board extended" : "board normal"}>
       {board.getBoard().map((line, row) => {
         const column = line.map((cell, col) => {
           return (
@@ -12,7 +12,7 @@ const Board = (props) => {
               key={`(${row}, ${col})`}
               row={row}
               col={col}
-              className="cell"
+              className={extendedMode ? "cell extended" : "cell normal"}
               onClick={(e) => {
                 handleClick(col, row);
               }}
