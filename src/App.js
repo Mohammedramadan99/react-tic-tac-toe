@@ -13,7 +13,7 @@ function App() {
   /* New stuff for the React UI */
   const [showMesage, setShowMessage] = useState(false);
   const [showForm, setShowForm] = useState(false);
-
+  const [extendedMode,setExtendedMode] = useState(false);
   function handleCloseMsgDlg() {
     start();
     setShowMessage(false);
