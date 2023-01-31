@@ -202,6 +202,11 @@ function App() {
     start();
   }
 
+  function runExtendedMode() {
+    setExtendedMode(!extendedMode)
+    extendedMode ? gameBoard.turnOnExtendedMode(extendedMode) : gameBoard.turnOnExtendedMode(extendedMode);
+  }
+  
   return (
     <div className="App">
       <header>
@@ -218,7 +223,7 @@ function App() {
       
       <div className="buttons">
         {/* <button className="button" style={{ pointerEvents: "none" }}> */}
-        <button className={extendedMode ? "button active" : "button"} onClick={() => setExtendedMode(!extendedMode)}>
+        <button className={extendedMode ? "button active" : "button"} onClick={() => runExtendedMode(!extendedMode)}>
           Extended Mode
         </button>
         <button className="button" onClick={reset}>

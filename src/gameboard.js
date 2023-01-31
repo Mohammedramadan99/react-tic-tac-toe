@@ -1,8 +1,7 @@
 import { matrix } from "./matrix";
 
 export const gameBoard = (function () {
-  const _n = 10;
-
+  let _n = 10;
   let _board = matrix(_n, _n);
 
   function setField(col, row, char) {
@@ -17,6 +16,10 @@ export const gameBoard = (function () {
     _board.fillUp("");
   }
 
+  function turnOnExtendedMode(status) {
+    status ? _n = 10 : _n = 3
+    console.log("gameBoard _n", _n)
+  }
   function getN() {
     return _n;
   }
@@ -26,5 +29,5 @@ export const gameBoard = (function () {
   }
 
   erase();
-  return { getN, setField, getField, erase, getBoard };
+  return { getN, setField, getField, erase, getBoard, turnOnExtendedMode };
 })();
