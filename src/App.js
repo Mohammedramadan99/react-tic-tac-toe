@@ -50,12 +50,30 @@ function App() {
   }
 
   function render() {
-    newState = {
-      ...newState,
-      board: gameBoard,
-    };
+    // newState = {
+    //   ...newState,
+    //   board: gameBoard,
+    // };
     setState(newState);
   }
+
+  function runExtendedMode() {
+    // extendedMode ? gameBoard.turnOnExtendedMode(extendedMode) : gameBoard.turnOnExtendedMode(extendedMode);
+    // newState = {
+    //   ...newState,
+    //   board: gameBoard,
+    // };
+    // setState(newState);
+    // console.log("state => ",state)
+    
+    
+    const extended = gameBoard.toggleMode()
+    //  gameBoard.isExtended
+    setExtendedMode(extended)
+    
+    render()
+  }
+
 
   function showNextPlayer() {
     newState = {
@@ -202,11 +220,7 @@ function App() {
     start();
   }
 
-  function runExtendedMode() {
-    setExtendedMode(!extendedMode)
-    extendedMode ? gameBoard.turnOnExtendedMode(extendedMode) : gameBoard.turnOnExtendedMode(extendedMode);
-  }
-  
+
   return (
     <div className="App">
       <header>

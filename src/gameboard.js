@@ -1,8 +1,9 @@
 import { matrix } from "./matrix";
 
 export const gameBoard = (function () {
-  let _n = 10;
+  let _n = 3; // default is 3
   let _board = matrix(_n, _n);
+  let extended = false; // so the default mode is the normalMode 
 
   function setField(col, row, char) {
     _board.setElement(col, row, char);
@@ -16,10 +17,17 @@ export const gameBoard = (function () {
     _board.fillUp("");
   }
 
-  function turnOnExtendedMode(status) {
-    status ? _n = 10 : _n = 3
-    console.log("gameBoard _n", _n)
+  // a new method
+  function toggleMode() {
+    _n = !extended ? 10 : 3
+    extended = !extended
+    _board = matrix(_n, _n)
+    
+    console.log({_n,extended})
+    
+    return extended
   }
+
   function getN() {
     return _n;
   }
@@ -29,5 +37,5 @@ export const gameBoard = (function () {
   }
 
   erase();
-  return { getN, setField, getField, erase, getBoard, turnOnExtendedMode };
+  return { getN, setField, getField, erase, getBoard, toggleMode };
 })();
